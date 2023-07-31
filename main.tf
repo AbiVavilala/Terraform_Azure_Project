@@ -28,7 +28,7 @@ resource "azurerm_resource_group" "Dev_Environment" {
 
 resource "azurerm_virtual_network" "dev-vn" {
   
-  name = "dev-vn"
+  name = "var.virtualnetwork_name"
   resource_group_name = var.resource_group_name
   location =  var.Azure_location
   address_space = ["10.123.0.0/16"]
@@ -80,3 +80,6 @@ resource "azurerm_subnet_network_security_group_association" "dev_subnet_sg_asso
   subnet_id = azurerm_subnet.dev_subnet.id
   network_security_group_id = azurerm_network_security_group.dev_sg.id
 }
+
+
+
